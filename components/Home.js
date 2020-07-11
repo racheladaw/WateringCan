@@ -2,6 +2,9 @@ import React, {useState} from 'react';
 import {View, StyleSheet, ScrollView, Text, TouchableOpacity} from 'react-native';
 import {v4 as uuid} from 'uuid';
 
+import ListItem from './ListItem';
+
+
 const Home = (props) => {
   const [items, setItems] = useState([
     {
@@ -57,7 +60,7 @@ const Home = (props) => {
           <TouchableOpacity
             style={styles.itemGallery}
           >
-            <Text>{item.name}</Text>
+            <ListItem item={item}/>
           </TouchableOpacity>
         ))}
       </ScrollView>
