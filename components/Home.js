@@ -1,9 +1,14 @@
 import React, {useState} from 'react';
-import {View, StyleSheet, ScrollView, Text, TouchableOpacity} from 'react-native';
+import {
+  View,
+  StyleSheet,
+  ScrollView,
+  Text,
+  TouchableOpacity,
+} from 'react-native';
 import {v4 as uuid} from 'uuid';
 
 import ListItem from './ListItem';
-
 
 const Home = (props) => {
   const [items, setItems] = useState([
@@ -53,14 +58,16 @@ const Home = (props) => {
     <View style={styles.container}>
       <View style={styles.btnContainer}>
         <Text style={styles.waterPlantsBtn}>Water Plants</Text>
-        <Text style={styles.addPlantBtn} onPress={() => props.navigation.navigate('Add Plant')}>+</Text>
+        <Text
+          style={styles.addPlantBtn}
+          onPress={() => props.navigation.navigate('Add Plant')}>
+          +
+        </Text>
       </View>
       <ScrollView contentContainerStyle={styles.imgGalleryContainer}>
         {items.map((item, index) => (
-          <TouchableOpacity
-            style={styles.itemGallery}
-          >
-            <ListItem item={item}/>
+          <TouchableOpacity style={styles.itemGallery}>
+            <ListItem item={item} />
           </TouchableOpacity>
         ))}
       </ScrollView>
