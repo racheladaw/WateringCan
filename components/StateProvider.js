@@ -30,14 +30,18 @@ export class StateProvider extends React.Component {
   }
 
   loadClient() {
-    Stitch.initializeDefaultAppClient('waterly-qyngc').then((client) => {
-      this.setState({client});
+    if (this.state.client) {
+      console.log("client already loaded")
+    } else {
+      Stitch.initializeDefaultAppClient('waterly-qyngc').then((client) => {
+        this.setState({client});
 
-      if (client.auth.isLoggedIn) {
-        this.setState({currentUserId: client.auth.user.id});
-      }
-    });
-    console.log('client loaded');
+        if (client.auth.isLoggedIn) {
+          this.setState({currentUserId: client.auth.user.id});
+        }
+      });
+      console.log('client loaded');
+    }
   }
 
   render() {
